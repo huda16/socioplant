@@ -1,10 +1,28 @@
-package com.example.socioplant;
+package com.example.socioplant.models;
 
 public class Plant {
+    private String id;
     private String name;
     private String type;
     private String description;
-    private int photo;
+    private String behavior;
+    private String photo;
+
+    public Plant() {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.behavior = behavior;
+        this.photo = photo;
+    }
+    public String getBehavior() {
+        return behavior;
+    }
+
+    public void setBehavior(String behavior) {
+        this.behavior = behavior;
+    }
 
     public String getName() {
         return name;
@@ -30,11 +48,11 @@ public class Plant {
         this.description = description;
     }
 
-    public int getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 }

@@ -146,27 +146,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <Button
-        android:id="@+id/buttonRegisterGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/button_radius"
-        android:fontFamily="@font/poppins_semibold"
-        android:paddingHorizontal="35dp"
-        app:backgroundTint="@color/gray_2"
-        android:text="Continue with Google"
-        android:drawableLeft="@drawable/google"
-        android:textColor="@color/black"
-        android:textAllCaps="false"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"

@@ -18,4 +18,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_account">Account</string>
+    <string name="database_url">https://socioplant-rpl-default-rtdb.asia-southeast1.firebasedatabase.app/</string>
 </resources>

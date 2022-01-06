@@ -52,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.editTextPassword);
         mConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
         btnRegister = (Button) findViewById(R.id.buttonRegister);
-        btnRegisterGoogle = (Button) findViewById(R.id.buttonRegisterGoogle);
 
         mAuth = FirebaseAuth.getInstance();
 
