@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1082876726474",
+    "project_id": "socioplant-rpl",
+    "storage_bucket": "socioplant-rpl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082876726474:android:9686d49f3cfd8a631af833",
+        "android_client_info": {
+          "package_name": "com.example.socioplant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082876726474-h5dgq1vcpds4ama2rv2t5b7gmcd15tk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-yjNslAyytlmV_8nM1SNjRlpBSr6pMmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082876726474-h5dgq1vcpds4ama2rv2t5b7gmcd15tk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
