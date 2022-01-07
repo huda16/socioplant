@@ -2,6 +2,7 @@ package com.example.socioplant.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.socioplant.DetailActivity;
 import com.example.socioplant.GridPlantAdapter;
 import com.example.socioplant.LoginActivity;
 import com.example.socioplant.R;
@@ -41,7 +43,15 @@ public class HomeFragment extends Fragment {
     FirebaseUser user;
 
     private void showSelectedPlant(Plant plant) {
-        Toast.makeText(getActivity(), "Kamu memilih " + plant.getName(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "Kamu memilih " + plant.getId(), Toast.LENGTH_SHORT).show();
+        Intent moveIntent = new Intent(getActivity(), DetailActivity.class);
+        moveIntent.putExtra("PLANT_ID", plant.getId());
+        moveIntent.putExtra("PLANT_NAME", plant.getName());
+        moveIntent.putExtra("PLANT_TYPE", plant.getType());
+        moveIntent.putExtra("PLANT_DESCRIPTION", plant.getDescription());
+        moveIntent.putExtra("PLANT_BEHAVIOR", plant.getBehavior());
+        moveIntent.putExtra("PLANT_PHOTO", plant.getPhoto());
+        startActivity(moveIntent);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,

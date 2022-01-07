@@ -40,11 +40,11 @@ public class DashboardFragment extends Fragment {
     private String DATABASE_URL;
     private String userId;
 
-    DatabaseReference myplant, plant;
+    DatabaseReference plant;
     FirebaseUser user;
 
-    private void showSelectedMyPlant(Myplants plant) {
-        Toast.makeText(getActivity(), "Kamu memilih " + plant.getUserId(), Toast.LENGTH_SHORT).show();
+    private void showSelectedMyPlant(Myplants myplants) {
+        Toast.makeText(getActivity(), "Kamu memilih " + myplants.getUserId(), Toast.LENGTH_SHORT).show();
     }
 
     private TextView textView;
@@ -63,7 +63,7 @@ public class DashboardFragment extends Fragment {
         user = FirebaseAuth.getInstance().getCurrentUser();
         userId = user.getUid();
         DATABASE_URL = getResources().getString(R.string.database_url);
-        myplant = FirebaseDatabase.getInstance(DATABASE_URL)
+        plant = FirebaseDatabase.getInstance(DATABASE_URL)
                 .getReference("myplants")
                 .child(userId);
 
@@ -88,7 +88,7 @@ public class DashboardFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        myplant.addValueEventListener(new ValueEventListener() {
+        plant.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
@@ -99,12 +99,6 @@ public class DashboardFragment extends Fragment {
                 ListPlantAdapter listPlantAdapter = new ListPlantAdapter(list);
                 rvPlants.setLayoutManager(new LinearLayoutManager(getActivity()));
                 rvPlants.setAdapter(listPlantAdapter);
-                listPlantAdapter.setOnItemClickCallback(new ListPlantAdapter.OnItemClickCallback() {
-                    @Override
-                    public void onItemClicked(Myplants data) {
-                        showSelectedMyPlant(data);
-                    }
-                });
                 listPlantAdapter.setOnItemClickCallback(new ListPlantAdapter.OnItemClickCallback() {
                     @Override
                     public void onItemClicked(Myplants data) {

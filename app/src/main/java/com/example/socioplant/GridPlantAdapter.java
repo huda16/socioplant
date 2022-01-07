@@ -2,6 +2,7 @@ package com.example.socioplant;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,13 +66,14 @@ public class GridPlantAdapter extends RecyclerView.Adapter<GridPlantAdapter.Grid
         StorageReference storageRef = storage.getReference();
         final StorageReference imgRef = storageRef.child("images/" + image);
         final long ONE_MEGABYTE = 1024*1024;
-//        String uri = "@drawable";
-//        int imageResource = holder.itemView.getContext().getResources().getIdentifier(uri, null, image);
+        String uri = "@drawable/";
+//        int imageResource = holder.itemView.getContext().getResources().getIdentifier(uri+image.replace(".png",""), null, holder.itemView.getContext().getPackageName());
 //        Drawable myImage = holder.itemView.getContext().getResources().getDrawable(imageResource);
-//        holder.imgPhoto.setImageDrawable(myImage);
+//        String gambar = holder.imgPhoto.setImageDrawable(myImage);
 
         Glide.with(holder.itemView.getContext())
                 .load(imgRef)
+                .placeholder(R.drawable.bonsai)
                 .into(holder.imgPhoto);
 //        imgRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
 //            @Override
