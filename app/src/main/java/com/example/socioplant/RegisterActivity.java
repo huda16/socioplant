@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,8 +68,28 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString();
-                String passsword = mPassword.getText().toString();
-                createAccount(email, passsword);
+                String password = mPassword.getText().toString();
+                String confirm = mConfirmPassword.getText().toString();
+                if (TextUtils.isEmpty(email)) {
+                    mEmail.setError("Alamat surel wajib diisi");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    mPassword.setError("Kata sandi wajib diisi");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(confirm)) {
+                    mConfirmPassword.setError("Kata sandi wajib diisi");
+                    return;
+                }
+
+                if (!password.equals(confirm)) {
+                    mConfirmPassword.setError("Kata sandi tidak sama");
+                    return;
+                }
+                createAccount(email, password);
             }
         });
     }

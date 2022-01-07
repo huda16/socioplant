@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Socioplant">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity

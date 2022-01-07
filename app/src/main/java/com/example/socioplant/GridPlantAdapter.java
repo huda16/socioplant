@@ -61,20 +61,19 @@ public class GridPlantAdapter extends RecyclerView.Adapter<GridPlantAdapter.Grid
     @Override
     public void onBindViewHolder(@NonNull final GridViewHolder holder, int position) {
         Plant plant = listPlant.get(position);
-        String image = plant.getPhoto();
+        String image = listPlant.get(position).getPhoto();
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://socioplant-rpl.appspot.com/");
         StorageReference storageRef = storage.getReference();
-        final StorageReference imgRef = storageRef.child("images/" + image);
+        final StorageReference imgRef = storageRef.child("images/rose");
         final long ONE_MEGABYTE = 1024*1024;
         String uri = "@drawable/";
-//        int imageResource = holder.itemView.getContext().getResources().getIdentifier(uri+image.replace(".png",""), null, holder.itemView.getContext().getPackageName());
-//        Drawable myImage = holder.itemView.getContext().getResources().getDrawable(imageResource);
-//        String gambar = holder.imgPhoto.setImageDrawable(myImage);
+        int imageResource = holder.itemView.getContext().getResources().getIdentifier(uri+image.replace(".png",""), null, holder.itemView.getContext().getPackageName());
+        Drawable myImage = holder.itemView.getContext().getResources().getDrawable(imageResource);
+        holder.imgPhoto.setImageDrawable(myImage);
 
-        Glide.with(holder.itemView.getContext())
-                .load(imgRef)
-                .placeholder(R.drawable.bonsai)
-                .into(holder.imgPhoto);
+//        Glide.with(holder.itemView.getContext())
+//                .load(imgRef)
+//                .into(holder.imgPhoto);
 //        imgRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
 //            @Override
 //            public void onSuccess(byte[] bytes) {

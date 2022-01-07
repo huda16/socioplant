@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -68,14 +69,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
-                signIn(email, password);
-            }
-        });
+                if (TextUtils.isEmpty(email)) {
+                    mEmail.setError("Alamat surel wajib diisi");
+                    return;
+                }
 
-        btnLoginGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
+                if (TextUtils.isEmpty(password)) {
+                    mPassword.setError("Kata sandi wajib diisi");
+                    return;
+                }
+
+                signIn(email, password);
             }
         });
     }

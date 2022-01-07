@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.socioplant.ChangePasswordActivity;
 import com.example.socioplant.HomeActivity;
 import com.example.socioplant.LoginActivity;
 import com.example.socioplant.MainActivity2;
@@ -62,6 +63,7 @@ public class AccountFragment extends Fragment {
         textName = (TextView) view.findViewById(R.id.textViewName);
         textEmail = (TextView) view.findViewById(R.id.textViewEmail);
         btnLogout = (Button) view.findViewById(R.id.buttonLogout);
+        btnChangePassword = (Button) view.findViewById(R.id.buttonChangePassword);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -87,7 +89,6 @@ public class AccountFragment extends Fragment {
 
             // Check if user's email is verified
             boolean emailVerified = user.isEmailVerified();
-            profile.setImageURI(photoUrl);
             textName.setText(name);
             textEmail.setText(email);
 
@@ -102,6 +103,14 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 mAuth.signOut();
                 Intent moveIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(moveIntent);
+            }
+        });
+
+        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveIntent = new Intent(getActivity(), ChangePasswordActivity.class);
                 startActivity(moveIntent);
             }
         });
